@@ -214,7 +214,7 @@ namespace Project_War
             }
             else
             { 
-                MessageBox.Show("Player 1 has won the war! They win the pot.",
+                MessageBox.Show("Player 2 has won the war! They win the pot.",
                                  "Congratulations!", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
 
