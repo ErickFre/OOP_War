@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project_War"
         mc:Ignorable="d"
-        Title="MainWindow" Height="538.5" Width="945.5">
+        Title="MainWindow" Height="538.5" Width="945.5" Icon="images/AceClubs.jpg" ResizeMode="NoResize">
     <Grid Background="#FFF5FEFF">
-        <Image x:Name="background" HorizontalAlignment="Left" Height="487" Margin="358,10,0,0" VerticalAlignment="Top" Width="568" Source="background.jpg">
+        <Image x:Name="background" HorizontalAlignment="Left" Height="487" Margin="358,10,0,0" VerticalAlignment="Top" Width="568" Source="background.jpg" IsEnabled="False">
             <Image.Effect>
                 <DropShadowEffect ShadowDepth="1" Color="#FFCBCBCB"/>
             </Image.Effect>
@@ -26,7 +26,7 @@
         <Canvas x:Name="cnv_P1BattleCard" HorizontalAlignment="Left" Height="100" Margin="603,136,0,0" VerticalAlignment="Top" Width="75"/>
         <Canvas x:Name="cnv_P2DiscardPile" HorizontalAlignment="Left" Height="100" Margin="840,372,0,0" VerticalAlignment="Top" Width="75" Background="#FFD3E1FB"/>
         <Canvas x:Name="cnv_P1DiscardPile" HorizontalAlignment="Left" Height="100" Margin="368,32,0,0" VerticalAlignment="Top" Width="75" Background="#FFD3E1FB"/>
-        <Button x:Name="btn_Battle" Content="Battle!&#xA;" HorizontalAlignment="Left" Height="26" Margin="603,462,0,0" VerticalAlignment="Top" Width="75" Click="btn_Battle_Click">
+        <Button x:Name="btn_Battle" Content="Battle!&#xA;" HorizontalAlignment="Left" Height="26" Margin="603,462,0,0" VerticalAlignment="Top" Width="75" Click="btn_Battle_Click" IsEnabled="False">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="1"/>
@@ -34,17 +34,17 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="btn_StartGame" Content="Start Game" HorizontalAlignment="Left" Height="22" Margin="195,71,0,0" VerticalAlignment="Top" Width="143" Click="btn_StartGame_Click">
+        <Button x:Name="btn_StartGame" Content="Start Game" HorizontalAlignment="Left" Height="22" Margin="10,59,0,0" VerticalAlignment="Top" Width="143" Click="btn_StartGame_Click">
             <Button.Effect>
                 <DropShadowEffect Opacity="0.3"/>
             </Button.Effect>
         </Button>
-        <Button x:Name="btn_RestartGame" Content="Restart Game" HorizontalAlignment="Left" Height="22" Margin="195,98,0,0" VerticalAlignment="Top" Width="143" Click="btn_RestartGame_Click">
+        <Button x:Name="btn_RestartGame" Content="Restart Game" HorizontalAlignment="Left" Height="22" Margin="200,59,0,0" VerticalAlignment="Top" Width="143" Click="btn_RestartGame_Click" IsEnabled="False">
             <Button.Effect>
                 <DropShadowEffect Opacity="0.3"/>
             </Button.Effect>
         </Button>
-        <Label x:Name="lblTitle" Content="- War - " HorizontalAlignment="Left" Height="66" Margin="178,0,0,0" VerticalAlignment="Top" Width="175" Background="{x:Null}" Foreground="#FF000234" FontFamily="Segoe UI Black" FontSize="48">
+        <Label x:Name="lblTitle" Content="- War - " HorizontalAlignment="Left" Height="66" Margin="81,-12,0,0" VerticalAlignment="Top" Width="175" Background="{x:Null}" Foreground="#FF000234" FontFamily="Segoe UI Black" FontSize="48">
             <Label.Effect>
                 <DropShadowEffect Opacity="0.4" BlurRadius="6"/>
             </Label.Effect>
@@ -54,9 +54,15 @@
         <Label Content="P2 War Bets" HorizontalAlignment="Left" Margin="368,212,0,0" VerticalAlignment="Top" Height="24" FontSize="10" Width="75"/>
         <Label Content="P1 War Bets" HorizontalAlignment="Left" Margin="852,270,0,0" VerticalAlignment="Top" Height="24" FontSize="10"/>
         <TextBlock x:Name="tb_P1Discard" HorizontalAlignment="Left" Margin="443,32,0,0" TextWrapping="Wrap" Text="P1 War Reserves" VerticalAlignment="Top" Height="100" Width="61" Background="#FFC3C3C3" TextAlignment="Center"/>
-        <Button x:Name="btn_RestockP1" Content="Restock" HorizontalAlignment="Left" Height="44" Margin="443,87,0,0" VerticalAlignment="Top" Width="61" Click="btn_RestockP1_Click"/>
+        <Button x:Name="btn_RestockP1" Content="Restock" HorizontalAlignment="Left" Height="44" Margin="443,87,0,0" VerticalAlignment="Top" Width="61" Click="btn_RestockP1_Click" IsEnabled="False"/>
         <TextBlock x:Name="tb_P2Discard" HorizontalAlignment="Left" Margin="779,372,0,0" TextWrapping="Wrap" Text="P1 War Reserves" VerticalAlignment="Top" Height="100" Width="61" Background="#FFC3C3C3" TextAlignment="Center"/>
-        <Button x:Name="btn_RestockP2" Content="Restock" HorizontalAlignment="Left" Height="44" Margin="779,428,0,0" VerticalAlignment="Top" Width="61" Click="btn_RestockP2_Click"/>
+        <Button x:Name="btn_RestockP2" Content="Restock" HorizontalAlignment="Left" Height="44" Margin="779,428,0,0" VerticalAlignment="Top" Width="61" Click="btn_RestockP2_Click" IsEnabled="False"/>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,87,585,10">
+            <TextBlock x:Name="tb_log" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="441" Width="333">
+                <TextBlock.Effect>
+                    <DropShadowEffect Opacity="0.4"/>
+                </TextBlock.Effect><Run Text="Rules:"/><LineBreak/><Run Text="Each player is given 26 cards from a shuffled deck"/><LineBreak/><Run/><LineBreak/><Run Text="Each round consists of placing the top card of your hand face up on the battlefield (This can be done by clicking the Battle! button below the battle area)."/><LineBreak/><Run/><LineBreak/><Run Text="The player with the higher card adds both active battle cards into their War Reserve pile."/><LineBreak/><Run/><LineBreak/><Run Text="Once a player runs out of cards, they can shuffle their War Reserve and place it back into their main hand. If a player is unable to restock their hand, they lose."/><LineBreak/><Run/><LineBreak/><Run Text="&#x9;&#x9;&#x9;-WAR-"/><LineBreak/><Run Text="If both players place a card with the same face value, this initiates a WAR."/><LineBreak/><Run/><LineBreak/><Run Text="The top three cards from each player's hand are placed into their betting area, another round is played and the winner of the second round takes both battle cards + the 6 bet cards and places them into their War Reserves."/><LineBreak/><Run/><LineBreak/><Run Text="Click Start game to begin playing!!"/></TextBlock>
 
+        </ScrollViewer>
     </Grid>
 </Window>

@@ -19,13 +19,16 @@ namespace BackEnd
             }
         }
 
+        //Places discard pile back into hand
         public void RestockHand(Hand h1, Hand h2)
         {
-            foreach(Card card in h2.cards)
+            int amount = h2.cards.Count;
+            for (int i = 0; i < amount; i++)
             {
-                h1.AddCard(card);
+                h1.AddCard(h2.cards[0]);
+                h2.RemoveCard(0);
+                
             }
-            
         }
 
 
@@ -121,12 +124,12 @@ namespace BackEnd
             }
         }
 
-        public void Clear(Hand h1)
+        //empties hand
+        public void Clear()
         {
-            int h1c = h1.Count;
-            for(int i = 0; i < h1c; i++)
+            for(int i = 0; i < this.Count; i++)
             {
-                h1.RemoveCard(0);
+                this.RemoveCard(0);
             }
         }
     }
